@@ -13,6 +13,11 @@ import BlogDetail from "./components/pages/BlogDetail";
 import BlogCreate from "./components/pages/BlogCreate";
 import NotFound from "./components/pages/NotFound";
 
+import ProductList from "./components/pages/products/ProductList";
+import ProductDetail from "./components/pages/products/ProductDetail";
+import ProductEdit from "./components/pages/products/ProductEdit";
+import ProductCreate from "./components/pages/products/ProductCreate";
+
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 const App = () => {
@@ -35,6 +40,10 @@ const App = () => {
               <Route path="/blogs/:id" element={<BlogDetail />} />
               <Route path="/create" element={<BlogCreate />} />
               <Route path="*" element={<NotFound />} />
+              <Route path="/products" element={<ProductList />} />
+              <Route path="/products/:id" element={<ProductDetail />} />
+              <Route path="/products/:id/edit" element={<ProductEdit />} />
+              <Route path="/products/create" element={<ProductCreate />} />
             </Routes>
           </div>
         </div>

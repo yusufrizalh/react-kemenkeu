@@ -10,7 +10,7 @@
   padding: 20px;
   display: flex;
   align-items: center;
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto;
   border-bottom: 1px solid #f2f2f2;
 }
@@ -29,8 +29,8 @@
   color: #bf0000;
 }
 .content {
-  max-width: 800px;
-  margin: 40px auto;
+  max-width: 1200px;
+  margin: 10px auto;
   padding: 20px;
 }
 
