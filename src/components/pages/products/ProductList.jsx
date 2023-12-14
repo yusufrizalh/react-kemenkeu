@@ -5,6 +5,8 @@ import "bootstrap/dist/css/bootstrap.css";
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
+  const [query, setQuery] = useState("");
+  const [searchParam] = useState(["name"]);
 
   useEffect(() => {
     getAllProducts();
@@ -24,6 +26,19 @@ const ProductList = () => {
     }
   };
 
+  const search = (products) => {
+    return products.filter((product) => {
+      return searchParam.some((findProduct) => {
+        return (
+          product[findProduct]
+            .toString()
+            .toLowerCase()
+            .indexOf(query.toLowerCase()) > -1
+        );
+      });
+    });
+  };
+
   return (
     <React.Fragment>
       <div className="container">
@@ -32,6 +47,20 @@ const ProductList = () => {
             <Link to="/products/create" className="btn btn-md btn-primary">
               Create Product
             </Link>
+          </div>
+          <div className="col-md-8">
+            <input
+              type="search"
+              name="search"
+              id="search"
+              autoComplete="off"
+              placeholder="Search by product name"
+              className="form-control"
+              value={query}
+              onChange={(event) => {
+                setQuery(event.target.value);
+              }}
+            />
           </div>
         </div>
         <div className="row">
@@ -50,7 +79,7 @@ const ProductList = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {products.map((item, index) => (
+                    {search(products).map((item, index) => (
                       <tr key={item.id}>
                         <td>{index + 1}</td>
                         <td>
