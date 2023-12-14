@@ -13,24 +13,17 @@ import BlogDetail from "./components/pages/BlogDetail";
 import BlogCreate from "./components/pages/BlogCreate";
 import NotFound from "./components/pages/NotFound";
 
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ProductList from "./components/pages/products/ProductList";
 import ProductDetail from "./components/pages/products/ProductDetail";
 import ProductEdit from "./components/pages/products/ProductEdit";
 import ProductCreate from "./components/pages/products/ProductCreate";
 
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
 const App = () => {
-  /* # Mendeklarasikan variabel
-        > var   : bersifat mutable
-        > const : bersifat immutable, final, harus diinisialisasi
-        > let   : bersifat immutable, tidak harus diinisialisasi
-  */
   return (
     <React.Fragment>
       <Router>
         <div className="App">
-          {/* komponen Header */}
           <Header />
           <div className="content">
             <Routes>
